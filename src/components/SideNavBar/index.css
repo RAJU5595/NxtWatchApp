@@ -4,4 +4,22 @@
   flex-direction: column;
   padding: 0px;
   width: 17%;
+  justify-content: space-between;
+  font-family: 'roboto';
+}
+.sidebar-options-container {
+  list-style: none;
+  padding: 0px;
+}
+
+.contact-us-logos-container {
+  display: flex;
+}
+.contact-us-logo {
+  width: 15%;
+  margin-right: 5px;
+}
+
+.contact-us-description {
+  width: 80%;
 }
