@@ -1,0 +1,21 @@
+.sidebar-option-container {
+  display: flex;
+  align-items: center;
+}
+
+.unselected-btn {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+}
+
+.selected-btn {
+  background-color: #d7dfe9;
+  color: #ff0b37;
+  width: 100%;
+  border: none;
+}
+
+.sidebar-option-text {
+  margin-left: 15px;
+}
