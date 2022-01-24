@@ -4,7 +4,20 @@
   list-style-type: none;
   padding: 0px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.website-logo-btn {
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  cursor: pointer;
+  max-width: 50%;
+}
+
+.header-logo {
+  width: 100%;
+  height: 100%;
 }
 
 .nav-bar-container {
@@ -13,14 +26,9 @@
   align-items: center;
   padding: 10px;
   height: 10vh;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
-
-.header-logo {
-  height: 50%;
-}
-
 .header-profile-logo {
   height: 35%;
   width: 35%;

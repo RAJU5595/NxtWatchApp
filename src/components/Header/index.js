@@ -1,4 +1,4 @@
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Popup from 'reactjs-popup'
 import {FaMoon} from 'react-icons/fa'
@@ -19,11 +19,15 @@ const Header = props => (
 
       const renderLightThemeHeader = () => (
         <nav className="nav-bar-container">
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-            alt="website logo"
-            className="header-logo"
-          />
+          <Link to="/">
+            <button className="website-logo-btn" type="button">
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                alt="website logo"
+                className="header-logo"
+              />
+            </button>
+          </Link>
           <ul className="navbar-options-container">
             <li>
               <button className="theme-icon" type="button">
