@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 import ThemeContext from './context/ThemeContext'
 import LoginRoute from './components/LoginRoute'
 import Home from './components/Home'
+import VideoItemDetails from './components/VideoItemDetails'
 import ProtectedRoute from './components/ProtectedRoute'
 
 const sideBarOptionsList = [
@@ -55,6 +56,11 @@ class App extends Component {
         <Switch>
           <Route exact path="/login" component={LoginRoute} />
           <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute
+            exact
+            path="/videos/:id"
+            component={VideoItemDetails}
+          />
         </Switch>
       </ThemeContext.Provider>
     )
