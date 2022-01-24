@@ -1,0 +1,27 @@
+.home-bg-container {
+  height: 100vh;
+  max-width: 1300px;
+  margin: auto;
+}
+.home-bg-content-container {
+  height: 90vh;
+  display: flex;
+}
+
+.sidebar-item-container {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-container {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  width: 17%;
+  background-color: aliceblue;
+}
+.sidebar-option-btn {
+  width: 100%;
+  border: none;
+}
