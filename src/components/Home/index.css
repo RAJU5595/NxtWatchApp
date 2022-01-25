@@ -2,6 +2,7 @@
   height: 100vh;
   max-width: 1250px;
   margin: auto;
+  font-family: 'roboto';
 }
 .home-bg-content-container {
   height: 90vh;

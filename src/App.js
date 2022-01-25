@@ -4,6 +4,7 @@ import ThemeContext from './context/ThemeContext'
 import LoginRoute from './components/LoginRoute'
 import Home from './components/Home'
 import VideoItemDetails from './components/VideoItemDetails'
+import TrendingRoute from './components/TrendingRoute'
 import ProtectedRoute from './components/ProtectedRoute'
 
 const sideBarOptionsList = [
@@ -61,6 +62,7 @@ class App extends Component {
             path="/videos/:id"
             component={VideoItemDetails}
           />
+          <ProtectedRoute exact path="/trending" component={TrendingRoute} />
         </Switch>
       </ThemeContext.Provider>
     )

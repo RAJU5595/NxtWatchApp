@@ -37,19 +37,19 @@
 .like-container {
   display: flex;
   align-items: center;
+  margin-left: 10px;
 }
 
 .reaction-btn {
-  margin-left: 10px;
   background-color: transparent;
+  color: #64748b;
   border: none;
   cursor: pointer;
 }
 
 .reaction-btn-clicked {
-  margin-left: 10px;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: #3b82f6;
+  color: #2563eb;
 }

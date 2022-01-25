@@ -112,6 +112,8 @@ class Home extends Component {
                             alt="no videos"
                             className="no-views-image"
                           />
+                          <h1>No Search results found</h1>
+                          <p>Try different key words or remove search filter</p>
                         </div>
                       ) : (
                         videosList.map(eachItem => (
@@ -126,6 +128,10 @@ class Home extends Component {
           )
 
           const renderDarkThemeHome = () => {}
+
+          const onClickRetryBtn = () => {
+            this.getHomeVideos()
+          }
 
           const failureLightThemeView = () => (
             <div className="home-bg-container">
@@ -170,7 +176,9 @@ class Home extends Component {
                         We are having some trouble to complete your request.
                         Please try again.
                       </p>
-                      <button type="button">Retry</button>
+                      <button onClick={onClickRetryBtn} type="button">
+                        Retry
+                      </button>
                     </div>
                   </div>
                 </div>

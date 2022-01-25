@@ -142,42 +142,43 @@ class VideoItemDetails extends Component {
                       <p>{viewCount} views</p>
                     </div>
                     <div className="reactions">
-                      <button
-                        type="button"
-                        name="like-dislike"
-                        className={likeBtnClassname}
-                        onClick={this.onClickLikeBtn}
-                      >
-                        <div className="like-container">
-                          <AiOutlineLike />
-                          <p>Like</p>
-                        </div>
-                      </button>
-                      <button
-                        type="button"
-                        className={dislikeBtnClassname}
-                        onClick={this.onClickDislikeBtn}
-                      >
-                        <div className="like-container">
-                          <AiOutlineDislike />
-                          <p>Dislike</p>
-                        </div>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={this.addSaveListBtn}
-                        className={addlistBtnClassname}
-                      >
-                        <div className="like-container">
-                          <RiPlayListAddLine />
-                          <p>Save</p>
-                        </div>
-                      </button>
+                      <div className="like-container">
+                        <AiOutlineLike className={likeBtnClassname} />
+                        <button
+                          type="button"
+                          name="like-dislike"
+                          className={likeBtnClassname}
+                          onClick={this.onClickLikeBtn}
+                        >
+                          Like
+                        </button>
+                      </div>
+                      <div className="like-container">
+                        <AiOutlineDislike className={dislikeBtnClassname} />
+                        <button
+                          type="button"
+                          className={dislikeBtnClassname}
+                          onClick={this.onClickDislikeBtn}
+                        >
+                          Dislike
+                        </button>
+                      </div>
+                      <div className="like-container">
+                        <RiPlayListAddLine className={addlistBtnClassname} />
+                        <button
+                          type="button"
+                          onClick={this.addSaveListBtn}
+                          className={addlistBtnClassname}
+                        >
+                          Save
+                        </button>
+                      </div>
                     </div>
                   </div>
                   <div className="details-container">
                     <div>
                       <img
+                        alt="channel logo"
                         className="profile-logo-image"
                         src={channel.profileImageUrl}
                       />

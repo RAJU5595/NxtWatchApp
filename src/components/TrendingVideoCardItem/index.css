@@ -1,0 +1,54 @@
+.trending-video-card-thumbnail {
+  width: 50%;
+}
+
+.trending-video-card-bg-container {
+  display: flex;
+  margin-bottom: 15px;
+}
+.trending-video-card-text-container {
+  padding: 10px;
+}
+
+.trending-video-card-views-container {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 575px) {
+  .trending-video-card-bg-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  .trending-video-card-thumbnail {
+    width: 100%;
+  }
+  .trending-video-card-text-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+  }
+  .trending-video-card-mobile-container {
+    display: flex;
+    align-items: center;
+  }
+  .trending-video-card-profile-image {
+    width: 50px;
+    margin-right: 20px;
+  }
+}
+@media (min-width: 576px) {
+  .trending-video-card-profile-image {
+    display: none;
+  }
+  .mobile-dot-item {
+    display: none;
+  }
+}
+
+.trending-card-video-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: #383838;
+}
