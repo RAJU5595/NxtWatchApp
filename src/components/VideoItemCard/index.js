@@ -1,12 +1,11 @@
 import {Link} from 'react-router-dom'
 import {BsDot} from 'react-icons/bs'
-import {formatDistanceToNow} from 'date-fns'
+import FormattedDate from '../FormattedDate'
 import './index.css'
 
 const VideoItemCard = props => {
   const {details} = props
   const {id, title, channel, publishedAt, thumbnailUrl, viewCount} = details
-  const publishedDate = formatDistanceToNow(new Date(publishedAt))
   const {name, profileImageUrl} = channel
   return (
     <Link to={`videos/${id}`} className="video-card-link">
@@ -28,7 +27,7 @@ const VideoItemCard = props => {
             <div className="views-count-container">
               <p>{viewCount}</p>
               <BsDot />
-              <p>{publishedDate}</p>
+              <FormattedDate date={publishedAt} />
             </div>
           </div>
         </div>

@@ -1,0 +1,55 @@
+.video-item-details-bg-container {
+  height: 100vh;
+  max-width: 1250px;
+  margin: auto;
+}
+.video-item-details-sidebar-content-container {
+  display: flex;
+  height: 90vh;
+}
+.video-item-content-container {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.reaction-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reactions {
+  display: flex;
+  align-items: center;
+}
+
+.details-container {
+  display: flex;
+  padding: 15px;
+}
+
+.profile-logo-image {
+  width: 40px;
+  align-self: flex-start;
+}
+
+.like-container {
+  display: flex;
+  align-items: center;
+}
+
+.reaction-btn {
+  margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.reaction-btn-clicked {
+  margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #3b82f6;
+}

@@ -9,7 +9,7 @@ import VideoItemCard from '../VideoItemCard'
 import './index.css'
 
 const apiStatusConstants = {
-  intial: 'INITIAL',
+  initial: 'INITIAL',
   success: 'SUCCESS',
   inProgress: 'IN_PROGRESS',
   failure: 'FAILURE',
@@ -19,7 +19,7 @@ class Home extends Component {
   state = {
     videosList: [],
     searchInput: '',
-    apiStatus: apiStatusConstants.intial,
+    apiStatus: apiStatusConstants.initial,
   }
 
   componentDidMount() {
@@ -41,7 +41,6 @@ class Home extends Component {
     if (response.ok === true) {
       const data = await response.json()
       const {videos} = data
-      console.log(videos)
       const updatedData = videos.map(eachItem => ({
         id: eachItem.id,
         channel: {
