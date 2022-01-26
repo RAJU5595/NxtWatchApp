@@ -24,7 +24,6 @@ class VideoItemDetails extends Component {
     videoDetailsApiStatus: apiStatusConstants.initial,
     isLikeBtnClicked: false,
     isDislikeBtnClicked: false,
-    isAddtoSaveListBtnClicked: false,
   }
 
   componentDidMount() {
@@ -84,20 +83,8 @@ class VideoItemDetails extends Component {
     }))
   }
 
-  addSaveListBtn = () => {
-    this.setState(prevState => ({
-      isAddtoSaveListBtnClicked: !prevState.isAddtoSaveListBtnClicked,
-    }))
-  }
-
   render() {
-    const {
-      videoItemDetails,
-      isLikeBtnClicked,
-      isDislikeBtnClicked,
-      isAddtoSaveListBtnClicked,
-    } = this.state
-    console.log(videoItemDetails)
+    const {videoItemDetails, isLikeBtnClicked, isDislikeBtnClicked} = this.state
     const {
       videoUrl,
       description,
@@ -106,7 +93,6 @@ class VideoItemDetails extends Component {
       viewCount,
       publishedAt,
     } = videoItemDetails
-    console.log(channel)
     const likeBtnClassname = isLikeBtnClicked
       ? 'reaction-btn-clicked'
       : 'reaction-btn'
@@ -114,89 +100,117 @@ class VideoItemDetails extends Component {
     const dislikeBtnClassname = isDislikeBtnClicked
       ? 'reaction-btn-clicked'
       : 'reaction-btn'
-
-    const addlistBtnClassname = isAddtoSaveListBtnClicked
-      ? 'reaction-btn-clicked'
-      : 'reaction-btn'
     return (
       <ThemeContext.Consumer>
         {value => {
-          const {isThemeLight} = value
-          const renderLightThemeVideoItemDetails = () => (
-            <div className="video-item-details-bg-container">
-              <Header />
-              <div className="video-item-details-sidebar-content-container">
-                <SideNavBar />
-                <div className="video-item-content-container">
-                  <ReactPlayer
-                    controls
-                    height="55vh"
-                    width="100%"
-                    url={videoUrl}
-                  />
-                  <p>{title}</p>
-                  <div className="reaction-container">
-                    <div className="reactions">
-                      <FormattedDate date={publishedAt} />
-                      <BsDot />
-                      <p>{viewCount} views</p>
-                    </div>
-                    <div className="reactions">
-                      <div className="like-container">
-                        <AiOutlineLike className={likeBtnClassname} />
-                        <button
-                          type="button"
-                          name="like-dislike"
-                          className={likeBtnClassname}
-                          onClick={this.onClickLikeBtn}
-                        >
-                          Like
-                        </button>
+          const {
+            isThemeLight,
+            addToSavedVideosList,
+            removeFromSavedList,
+            savedVideosList,
+          } = value
+
+          const renderLightThemeVideoItemDetails = () => {
+            const videoIndex = savedVideosList.findIndex(eachItem => {
+              if (eachItem.id === videoItemDetails.id) {
+                return true
+              }
+              return false
+            })
+            let isVideoAlreadySaved = null
+            if (videoIndex === -1) {
+              isVideoAlreadySaved = false
+            } else {
+              isVideoAlreadySaved = true
+            }
+            const onClickSaveBtn = () => {
+              if (isVideoAlreadySaved === false) {
+                addToSavedVideosList(videoItemDetails)
+              } else {
+                removeFromSavedList(videoItemDetails)
+              }
+            }
+            const addlistBtnClassname =
+              isVideoAlreadySaved === true
+                ? 'reaction-btn-clicked'
+                : 'reaction-btn'
+            const saveBtnText = isVideoAlreadySaved === true ? 'Saved' : 'Save'
+            return (
+              <div className="video-item-details-bg-container">
+                <Header />
+                <div className="video-item-details-sidebar-content-container">
+                  <SideNavBar />
+                  <div className="video-item-content-container">
+                    <ReactPlayer
+                      controls
+                      height="55vh"
+                      width="100%"
+                      url={videoUrl}
+                    />
+                    <p>{title}</p>
+                    <div className="reaction-container">
+                      <div className="reactions">
+                        <FormattedDate date={publishedAt} />
+                        <BsDot />
+                        <p>{viewCount} views</p>
                       </div>
-                      <div className="like-container">
-                        <AiOutlineDislike className={dislikeBtnClassname} />
-                        <button
-                          type="button"
-                          className={dislikeBtnClassname}
-                          onClick={this.onClickDislikeBtn}
-                        >
-                          Dislike
-                        </button>
-                      </div>
-                      <div className="like-container">
-                        <RiPlayListAddLine className={addlistBtnClassname} />
-                        <button
-                          type="button"
-                          onClick={this.addSaveListBtn}
-                          className={addlistBtnClassname}
-                        >
-                          Save
-                        </button>
+                      <div className="reactions">
+                        <div className="like-container">
+                          <AiOutlineLike className={likeBtnClassname} />
+                          <button
+                            type="button"
+                            name="like-dislike"
+                            className={likeBtnClassname}
+                            onClick={this.onClickLikeBtn}
+                          >
+                            Like
+                          </button>
+                        </div>
+                        <div className="like-container">
+                          <AiOutlineDislike className={dislikeBtnClassname} />
+                          <button
+                            type="button"
+                            className={dislikeBtnClassname}
+                            onClick={this.onClickDislikeBtn}
+                          >
+                            Dislike
+                          </button>
+                        </div>
+                        <div className="like-container">
+                          <RiPlayListAddLine className={addlistBtnClassname} />
+                          <button
+                            type="button"
+                            onClick={onClickSaveBtn}
+                            className={addlistBtnClassname}
+                          >
+                            {saveBtnText}
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="details-container">
-                    <div>
-                      <img
-                        alt="channel logo"
-                        className="profile-logo-image"
-                        src={channel.profileImageUrl}
-                      />
-                    </div>
-                    <div>
+                    <div className="details-container">
                       <div>
-                        <p>{channel.name}</p>
-                        <p>{channel.subscriberCount} subscribers</p>
+                        <img
+                          alt="channel logo"
+                          className="profile-logo-image"
+                          src={channel.profileImageUrl}
+                        />
                       </div>
-                      <div className="text-container">
-                        <p>{description}</p>
+                      <div>
+                        <div>
+                          <p>{channel.name}</p>
+                          <p>{channel.subscriberCount} subscribers</p>
+                        </div>
+                        <div className="text-container">
+                          <p>{description}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )
+            )
+          }
 
           const renderDarkThemeVideoItemDetails = () => {}
 

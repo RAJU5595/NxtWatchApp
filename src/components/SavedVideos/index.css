@@ -1,17 +1,16 @@
-.trending-bg-container {
+.saved-videos-bg-container {
   height: 100vh;
   max-width: 1250px;
   margin: auto;
   font-family: 'roboto';
 }
-
-.trending-content-and-side-navbar-container {
-  display: flex;
+.saved-videos-sidenavbar-and-content-container {
   height: 90vh;
+  display: flex;
   overflow-y: auto;
 }
 
-.trending-content-container {
+.saved-videos-content-container {
   width: 100%;
   background-color: #f8fafc;
   display: flex;
@@ -19,14 +18,14 @@
   overflow: auto;
 }
 
-.trending-banner-container {
+.saved-videos-banner-container {
   background-color: #f4f4f4;
   display: flex;
   align-items: center;
   padding: 15px;
 }
 
-.trending-fire-logo {
+.saved-videos-logo {
   font-size: 40px;
   background-color: #d7dfe9;
   margin-left: 30px;
@@ -40,10 +39,14 @@
   padding: 15px;
 }
 
-.loader-container-trending {
+.no-save-image {
+  width: 50%;
+}
+
+.no-saved-videos-container {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
 }

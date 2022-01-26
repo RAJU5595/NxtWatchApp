@@ -1,17 +1,17 @@
-.trending-bg-container {
+.gaming-bg-container {
   height: 100vh;
   max-width: 1250px;
   margin: auto;
   font-family: 'roboto';
 }
-
-.trending-content-and-side-navbar-container {
+.gaming-content-and-side-navbar-container {
   display: flex;
   height: 90vh;
+  width: 100%;
   overflow-y: auto;
 }
 
-.trending-content-container {
+.gaming-content-container {
   width: 100%;
   background-color: #f8fafc;
   display: flex;
@@ -19,14 +19,14 @@
   overflow: auto;
 }
 
-.trending-banner-container {
+.gaming-banner-container {
   background-color: #f4f4f4;
   display: flex;
   align-items: center;
   padding: 15px;
 }
 
-.trending-fire-logo {
+.gaming-play-logo {
   font-size: 40px;
   background-color: #d7dfe9;
   margin-left: 30px;
@@ -35,15 +35,18 @@
   color: #ff0b37;
   border-radius: 40px;
 }
-
-.trending-video-list-container {
+.gaming-video-list-container {
+  display: flex;
+  flex-wrap: wrap;
   padding: 15px;
+  width: 100%;
+  justify-content: center;
 }
 
-.loader-container-trending {
+.gaming-loader-container {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 100%;
+  justify-content: center;
 }

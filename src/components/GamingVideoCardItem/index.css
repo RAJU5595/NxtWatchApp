@@ -1,0 +1,33 @@
+.gaming-card-video-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: #383838;
+}
+
+.gaming-thumbnail-image {
+  width: 100%;
+}
+@media (max-width: 575px) {
+  .gaming-video-card-bg-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 225px;
+    margin: 10px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .gaming-video-card-bg-container {
+    max-width: 220px;
+    margin: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .gaming-video-card-bg-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 10px;
+  }
+}

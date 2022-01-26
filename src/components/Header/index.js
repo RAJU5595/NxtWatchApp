@@ -7,6 +7,10 @@ import {FiLogOut} from 'react-icons/fi'
 import ThemeContext from '../../context/ThemeContext'
 import './index.css'
 
+const overlayStyles = {
+  backgroundColor: '#ffff',
+}
+
 const Header = props => (
   <ThemeContext.Consumer>
     {value => {
@@ -43,31 +47,60 @@ const Header = props => (
               <GoThreeBars className="three-bars-icon" />
             </li>
             <li>
-              <button
-                onClick={onClickLogout}
-                className="logout-btn"
-                type="button"
+              <Popup
+                modal
+                trigger={
+                  <button
+                    onClick={onClickLogout}
+                    className="logout-btn"
+                    type="button"
+                  >
+                    Logout
+                  </button>
+                }
               >
-                Logout
-              </button>
-              <Popup modal trigger={<FiLogOut className="logout-icon" />}>
                 {close => (
                   <div className="popup-container">
                     <p>Are you sure want to logout?</p>
-                    <button
-                      onClick={() => close()}
-                      className="popup-btn-cancel"
-                      type="button"
-                    >
-                      cancel
-                    </button>
-                    <button
-                      className="popup-btn-confirm"
-                      onClick={onClickLogout}
-                      type="button"
-                    >
-                      Confirm
-                    </button>
+                    <div>
+                      <button
+                        onClick={() => close()}
+                        className="popup-btn-cancel"
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="popup-btn-confirm"
+                        onClick={onClickLogout}
+                        type="button"
+                      >
+                        Confirm
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </Popup>
+              <Popup modal trigger={<FiLogOut className="logout-icon" />}>
+                {close => (
+                  <div className="popup-container-logout-btn">
+                    <p>Are you sure want to logout?</p>
+                    <div>
+                      <button
+                        onClick={() => close()}
+                        className="popup-btn-cancel"
+                        type="button"
+                      >
+                        cancel
+                      </button>
+                      <button
+                        className="popup-btn-confirm"
+                        onClick={onClickLogout}
+                        type="button"
+                      >
+                        Confirm
+                      </button>
+                    </div>
                   </div>
                 )}
               </Popup>

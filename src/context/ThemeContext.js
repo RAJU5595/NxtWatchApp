@@ -6,6 +6,7 @@ const ThemeContext = React.createContext({
   sideBarOptionsList: [],
   activeTabId: '',
   changeTheActiveTab: () => {},
+  savedVideosList: [],
 })
 
 export default ThemeContext

@@ -6,6 +6,8 @@ import Home from './components/Home'
 import VideoItemDetails from './components/VideoItemDetails'
 import TrendingRoute from './components/TrendingRoute'
 import ProtectedRoute from './components/ProtectedRoute'
+import GamingRoute from './components/GamingRoute'
+import SavedVideos from './components/SavedVideos'
 
 const sideBarOptionsList = [
   {
@@ -31,7 +33,11 @@ const sideBarOptionsList = [
 ]
 
 class App extends Component {
-  state = {isThemeLight: true, activeTabId: sideBarOptionsList[0].id}
+  state = {
+    isThemeLight: true,
+    activeTabId: sideBarOptionsList[0].id,
+    savedVideosList: [],
+  }
 
   changeTheTheme = () =>
     this.setState(prevState => ({
@@ -42,8 +48,26 @@ class App extends Component {
     this.setState({activeTabId: Id})
   }
 
+  addToSavedVideosList = videoItem => {
+    const {savedVideosList} = this.state
+    savedVideosList.push(videoItem)
+    this.setState({savedVideosList: [...savedVideosList]})
+  }
+
+  removeFromSavedList = videoItem => {
+    const {savedVideosList} = this.state
+    const videoIndex = savedVideosList.findIndex(eachItem => {
+      if (eachItem.id === videoItem.id) {
+        return true
+      }
+      return false
+    })
+    savedVideosList.splice(videoIndex, 1)
+    this.setState({savedVideosList: [...savedVideosList]})
+  }
+
   render() {
-    const {isThemeLight, activeTabId} = this.state
+    const {isThemeLight, activeTabId, savedVideosList} = this.state
     return (
       <ThemeContext.Provider
         value={{
@@ -52,6 +76,9 @@ class App extends Component {
           sideBarOptionsList,
           activeTabId,
           changeTheActiveTab: this.changeTheActiveTab,
+          savedVideosList,
+          addToSavedVideosList: this.addToSavedVideosList,
+          removeFromSavedList: this.removeFromSavedList,
         }}
       >
         <Switch>
@@ -63,6 +90,8 @@ class App extends Component {
             component={VideoItemDetails}
           />
           <ProtectedRoute exact path="/trending" component={TrendingRoute} />
+          <ProtectedRoute exact path="/gaming" component={GamingRoute} />
+          <ProtectedRoute exact path="/saved-videos" component={SavedVideos} />
         </Switch>
       </ThemeContext.Provider>
     )

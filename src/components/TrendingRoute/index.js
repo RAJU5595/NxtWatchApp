@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import {HiFire} from 'react-icons/hi'
 import ThemeContext from '../../context/ThemeContext'
@@ -108,7 +109,17 @@ class TrendingRoute extends Component {
             </div>
           )
 
-          const renderLoaderView = () => {}
+          const renderLoaderView = () => (
+            <div className="trending-bg-container">
+              <Header />
+              <div className="trending-content-and-side-navbar-container">
+                <SideNavBar />
+                <div className="loader-container-trending">
+                  <Loader type="ThreeDots" />
+                </div>
+              </div>
+            </div>
+          )
           const renderDarkThemeTrending = () => {}
           const renderAllLightThemeTrending = () => {
             const {trendingApiStatus} = this.state
