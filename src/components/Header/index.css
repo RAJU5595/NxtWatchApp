@@ -99,8 +99,21 @@
 
 .popup-container {
   background-color: #ffffff;
-  width: 40vw;
-  height: 20vh;
+  max-width: 40vw;
+  min-height: 20vh;
+  padding: 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0.5px 0.5px 5px 0.5px #888888;
+}
+
+.popup-container-logout-btn {
+  background-color: #ffffff;
+  max-width: 40vw;
+  min-height: 20vh;
   padding: 20px;
   margin: auto;
   display: flex;

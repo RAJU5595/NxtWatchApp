@@ -7,7 +7,11 @@ const GamingVideoCardItem = props => {
   return (
     <Link to={`/videos/${id}`} className="gaming-card-video-link">
       <div className="gaming-video-card-bg-container">
-        <img src={thumbnailUrl} className="gaming-thumbnail-image" />
+        <img
+          alt="video thumbnail"
+          src={thumbnailUrl}
+          className="gaming-thumbnail-image"
+        />
         <p>{title}</p>
         <p>{viewCount} Watching Worldwide</p>
       </div>

@@ -5,11 +5,8 @@ import {FaMoon} from 'react-icons/fa'
 import {GoThreeBars} from 'react-icons/go'
 import {FiLogOut} from 'react-icons/fi'
 import ThemeContext from '../../context/ThemeContext'
+import {BtnElement} from '../../styledComponents'
 import './index.css'
-
-const overlayStyles = {
-  backgroundColor: '#ffff',
-}
 
 const Header = props => (
   <ThemeContext.Consumer>
@@ -24,13 +21,13 @@ const Header = props => (
       const renderLightThemeHeader = () => (
         <nav className="nav-bar-container">
           <Link to="/">
-            <button className="website-logo-btn" type="button">
+            <BtnElement data-testid="theme" type="button">
               <img
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                 alt="website logo"
                 className="header-logo"
               />
-            </button>
+            </BtnElement>
           </Link>
           <ul className="navbar-options-container">
             <li>
@@ -61,7 +58,7 @@ const Header = props => (
               >
                 {close => (
                   <div className="popup-container">
-                    <p>Are you sure want to logout?</p>
+                    <p>Are you sure, you want to logout</p>
                     <div>
                       <button
                         onClick={() => close()}

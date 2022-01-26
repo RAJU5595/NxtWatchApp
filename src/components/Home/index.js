@@ -7,6 +7,12 @@ import Header from '../Header'
 import SideNavbar from '../SideNavBar'
 import VideoItemCard from '../VideoItemCard'
 import './index.css'
+import {
+  BannerContainer,
+  SearchBtn,
+  LoaderContainer,
+  CustomBtn,
+} from '../../styledComponents'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -66,8 +72,20 @@ class Home extends Component {
     this.setState({searchInput: searchElement.value}, this.getHomeVideos)
   }
 
+  onClickRetryBtn = () => {
+    this.getHomeVideos()
+  }
+
+  returnToHomeView = () => {
+    this.setState({searchInput: ''}, this.getHomeVideos)
+  }
+
+  getSearchInputOnChange = event => {
+    this.setState({searchInput: event.target.value})
+  }
+
   render() {
-    const {videosList} = this.state
+    const {videosList, searchInput} = this.state
     return (
       <ThemeContext.Consumer>
         {value => {
@@ -78,7 +96,7 @@ class Home extends Component {
               <div className="home-bg-content-container">
                 <SideNavbar />
                 <div className="home-bg-videos-content-container">
-                  <div className="banner-section">
+                  <BannerContainer data-testid="banner">
                     <img
                       src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                       className="banner-logo"
@@ -88,21 +106,23 @@ class Home extends Component {
                     <button className="banner-btn" type="button">
                       GET IT NOW
                     </button>
-                  </div>
+                  </BannerContainer>
                   <div className="home-videos-container">
                     <div className="input-search-container">
                       <input
                         id="search-input"
                         className="input-search-field"
                         type="search"
+                        onChange={this.getSearchInputOnChange}
+                        value={searchInput}
                       />
-                      <button
+                      <SearchBtn
+                        data-testid="searchButton"
                         onClick={this.getSearchInput}
-                        className="search-btn"
                         type="button"
                       >
                         <BiSearch />
-                      </button>
+                      </SearchBtn>
                     </div>
                     <div className="videos-list-bg-container">
                       {videosList.length === 0 ? (
@@ -114,6 +134,12 @@ class Home extends Component {
                           />
                           <h1>No Search results found</h1>
                           <p>Try different key words or remove search filter</p>
+                          <CustomBtn
+                            onClick={this.returnToHomeView}
+                            type="button"
+                          >
+                            Retry
+                          </CustomBtn>
                         </div>
                       ) : (
                         videosList.map(eachItem => (
@@ -128,11 +154,6 @@ class Home extends Component {
           )
 
           const renderDarkThemeHome = () => {}
-
-          const onClickRetryBtn = () => {
-            this.getHomeVideos()
-          }
-
           const failureLightThemeView = () => (
             <div className="home-bg-container">
               <Header />
@@ -176,9 +197,9 @@ class Home extends Component {
                         We are having some trouble to complete your request.
                         Please try again.
                       </p>
-                      <button onClick={onClickRetryBtn} type="button">
+                      <CustomBtn onClick={this.onClickRetryBtn} type="button">
                         Retry
-                      </button>
+                      </CustomBtn>
                     </div>
                   </div>
                 </div>
@@ -218,9 +239,9 @@ class Home extends Component {
                         <BiSearch />
                       </button>
                     </div>
-                    <div className="loader-container">
+                    <LoaderContainer data-testid="loader">
                       <Loader type="ThreeDots" />
-                    </div>
+                    </LoaderContainer>
                   </div>
                 </div>
               </div>

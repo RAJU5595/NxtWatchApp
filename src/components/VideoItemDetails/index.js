@@ -9,6 +9,7 @@ import ThemeContext from '../../context/ThemeContext'
 import Header from '../Header'
 import SideNavBar from '../SideNavBar'
 import FormattedDate from '../FormattedDate'
+import {LoaderContainer} from '../../styledComponents'
 import './index.css'
 
 const apiStatusConstants = {
@@ -81,6 +82,10 @@ class VideoItemDetails extends Component {
       isDislikeBtnClicked: !prevState.isDislikeBtnClicked,
       isLikeBtnClicked: false,
     }))
+  }
+
+  onClickRetryVideoDetails = () => {
+    this.getVideoItemDetails()
   }
 
   render() {
@@ -173,7 +178,7 @@ class VideoItemDetails extends Component {
                             className={dislikeBtnClassname}
                             onClick={this.onClickDislikeBtn}
                           >
-                            Dislike
+                            DisLike
                           </button>
                         </div>
                         <div className="like-container">
@@ -231,7 +236,12 @@ class VideoItemDetails extends Component {
                       We are having some trouble to complete your request.
                       Please try again.
                     </p>
-                    <button type="button">Retry</button>
+                    <button
+                      onClick={this.onClickRetryVideoDetails}
+                      type="button"
+                    >
+                      Retry
+                    </button>
                   </div>
                 </div>
               </div>
@@ -244,9 +254,9 @@ class VideoItemDetails extends Component {
               <div className="video-item-details-sidebar-content-container">
                 <SideNavBar />
                 <div className="video-item-content-container">
-                  <div>
+                  <LoaderContainer data-testid="loader">
                     <Loader type="ThreeDots" className="loader-container" />
-                  </div>
+                  </LoaderContainer>
                 </div>
               </div>
             </div>

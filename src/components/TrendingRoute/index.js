@@ -7,6 +7,7 @@ import Header from '../Header'
 import TrendingVideoCardItem from '../TrendingVideoCardItem'
 import './index.css'
 import SideNavBar from '../SideNavBar'
+import {LoaderContainer} from '../../styledComponents'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -59,6 +60,10 @@ class TrendingRoute extends Component {
     }
   }
 
+  onCLickRetryBtn = () => {
+    this.getTrendingVideos()
+  }
+
   render() {
     const {trendingVideosList} = this.state
     return (
@@ -103,7 +108,9 @@ class TrendingRoute extends Component {
                     We are having some trouble to complete your request. Please
                     try again.
                   </p>
-                  <button type="button">Retry</button>
+                  <button onClick={this.onCLickRetryBtn} type="button">
+                    Retry
+                  </button>
                 </div>
               </div>
             </div>
@@ -114,9 +121,9 @@ class TrendingRoute extends Component {
               <Header />
               <div className="trending-content-and-side-navbar-container">
                 <SideNavBar />
-                <div className="loader-container-trending">
+                <LoaderContainer data-testid="loader">
                   <Loader type="ThreeDots" />
-                </div>
+                </LoaderContainer>
               </div>
             </div>
           )

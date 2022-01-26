@@ -19,7 +19,6 @@
   .trending-video-card-bg-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
   }
   .trending-video-card-thumbnail {
     width: 100%;

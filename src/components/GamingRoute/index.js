@@ -7,6 +7,7 @@ import Header from '../Header'
 import GamingVideoCardItem from '../GamingVideoCardItem'
 import './index.css'
 import SideNavBar from '../SideNavBar'
+import {LoaderContainer} from '../../styledComponents'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -52,6 +53,10 @@ class GamingRoute extends Component {
     } else {
       this.setState({gamingApiStatus: apiStatusConstants.failure})
     }
+  }
+
+  onClickRetryBtn = () => {
+    this.getTrendingVideos()
   }
 
   render() {
@@ -104,7 +109,9 @@ class GamingRoute extends Component {
                       We are having some trouble to complete your request.
                       Please try again.
                     </p>
-                    <button type="button">Retry</button>
+                    <button onClick={this.onClickRetryBtn} type="button">
+                      Retry
+                    </button>
                   </div>
                 </div>
               </div>
@@ -121,9 +128,9 @@ class GamingRoute extends Component {
                     <SiYoutubegaming className="gaming-play-logo" />
                     <h1>Gaming</h1>
                   </div>
-                  <div className="gaming-loader-container">
+                  <LoaderContainer data-testid="loader">
                     <Loader type="ThreeDots" />
-                  </div>
+                  </LoaderContainer>
                 </div>
               </div>
             </div>

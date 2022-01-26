@@ -8,6 +8,7 @@ import TrendingRoute from './components/TrendingRoute'
 import ProtectedRoute from './components/ProtectedRoute'
 import GamingRoute from './components/GamingRoute'
 import SavedVideos from './components/SavedVideos'
+import NotFound from './components/NotFound'
 
 const sideBarOptionsList = [
   {
@@ -92,6 +93,7 @@ class App extends Component {
           <ProtectedRoute exact path="/trending" component={TrendingRoute} />
           <ProtectedRoute exact path="/gaming" component={GamingRoute} />
           <ProtectedRoute exact path="/saved-videos" component={SavedVideos} />
+          <Route component={NotFound} />
         </Switch>
       </ThemeContext.Provider>
     )
