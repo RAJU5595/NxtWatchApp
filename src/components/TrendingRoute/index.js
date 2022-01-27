@@ -70,13 +70,19 @@ class TrendingRoute extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {isThemeLight} = value
+          const trendingContentContainer = isThemeLight
+            ? 'trending-content-container'
+            : 'trending-content-container-dark'
+          const trendingBannerContainer = isThemeLight
+            ? 'trending-banner-container'
+            : 'trending-banner-container-dark'
           const renderLightThemeTrending = () => (
             <div className="trending-bg-container">
               <Header />
               <div className="trending-content-and-side-navbar-container">
                 <SideNavBar />
-                <div className="trending-content-container">
-                  <div className="trending-banner-container">
+                <div className={trendingContentContainer}>
+                  <div className={trendingBannerContainer}>
                     <HiFire className="trending-fire-logo" />
                     <h1>Trending</h1>
                   </div>
@@ -141,10 +147,8 @@ class TrendingRoute extends Component {
                 return null
             }
           }
-          if (isThemeLight === true) {
-            return renderAllLightThemeTrending()
-          }
-          return renderDarkThemeTrending()
+
+          return renderAllLightThemeTrending()
         }}
       </ThemeContext.Consumer>
     )

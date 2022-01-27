@@ -9,6 +9,10 @@
 .trending-video-card-text-container {
   padding: 10px;
 }
+.trending-video-card-text-container-dark {
+  padding: 10px;
+  color: #ffffff;
+}
 
 .trending-video-card-views-container {
   display: flex;

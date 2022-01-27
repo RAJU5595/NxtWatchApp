@@ -90,12 +90,15 @@ class Home extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {isThemeLight} = value
+          const HomeBgVideosContentContainerClassName = isThemeLight
+            ? 'home-bg-videos-content-container'
+            : 'home-bg-videos-content-container-dark'
           const renderLightThemeHome = () => (
             <div className="home-bg-container">
               <Header />
               <div className="home-bg-content-container">
                 <SideNavbar />
-                <div className="home-bg-videos-content-container">
+                <div className={HomeBgVideosContentContainerClassName}>
                   <BannerContainer data-testid="banner">
                     <img
                       src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
@@ -113,8 +116,9 @@ class Home extends Component {
                         id="search-input"
                         className="input-search-field"
                         type="search"
-                        onChange={this.getSearchInputOnChange}
+                        placeholder="Search"
                         value={searchInput}
+                        onChange={this.getSearchInputOnChange}
                       />
                       <SearchBtn
                         data-testid="searchButton"
@@ -152,8 +156,6 @@ class Home extends Component {
               </div>
             </div>
           )
-
-          const renderDarkThemeHome = () => {}
           const failureLightThemeView = () => (
             <div className="home-bg-container">
               <Header />
@@ -262,10 +264,7 @@ class Home extends Component {
             }
           }
 
-          if (isThemeLight === true) {
-            return renderAllLightThemeHome()
-          }
-          return renderDarkThemeHome()
+          return renderAllLightThemeHome()
         }}
       </ThemeContext.Consumer>
     )

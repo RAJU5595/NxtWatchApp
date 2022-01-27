@@ -4,18 +4,36 @@
 }
 
 .unselected-btn {
-  background-color: transparent;
   border: none;
   width: 100%;
+  cursor: pointer;
 }
-
 .selected-btn {
-  background-color: #f4f4f4;
-  color: #ff0b37;
   width: 100%;
+  cursor: pointer;
   border: none;
+  color: #ff0b37;
+}
+.selected-btn-light {
+  background-color: #ebebeb;
+}
+.unselected-btn-light {
+  background-color: transparent;
+}
+.unselected-btn-dark {
+  background-color: transparent;
+}
+.selected-btn-dark {
+  background-color: #313131;
 }
 
-.sidebar-option-text {
+.sidebar-text {
   margin-left: 15px;
+  color: #121212;
+  font-weight: bold;
+}
+.sidebar-text-dark {
+  margin-left: 15px;
+  color: #ffffff;
+  font-weight: bold;
 }

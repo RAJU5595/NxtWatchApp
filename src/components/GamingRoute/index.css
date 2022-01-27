@@ -18,12 +18,26 @@
   flex-direction: column;
   overflow: auto;
 }
+.gaming-content-container-dark {
+  width: 100%;
+  background-color: #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
 
 .gaming-banner-container {
   background-color: #f4f4f4;
   display: flex;
   align-items: center;
   padding: 15px;
+}
+.gaming-banner-container-dark {
+  background-color: #121212;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  color: #ffffff;
 }
 
 .gaming-play-logo {

@@ -14,6 +14,15 @@
   flex-direction: column;
 }
 
+.video-item-content-container-dark {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
+
 .reaction-container {
   display: flex;
   justify-content: space-between;
@@ -32,6 +41,7 @@
 .profile-logo-image {
   width: 40px;
   align-self: flex-start;
+  margin-right: 15px;
 }
 
 .like-container {

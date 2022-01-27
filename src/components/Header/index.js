@@ -2,6 +2,7 @@ import {withRouter, Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Popup from 'reactjs-popup'
 import {FaMoon} from 'react-icons/fa'
+import {BiSun} from 'react-icons/bi'
 import {GoThreeBars} from 'react-icons/go'
 import {FiLogOut} from 'react-icons/fi'
 import ThemeContext from '../../context/ThemeContext'
@@ -12,18 +13,28 @@ const Header = props => (
   <ThemeContext.Consumer>
     {value => {
       const {isThemeLight, changeTheTheme} = value
+      const NavbarContainerClassName = isThemeLight
+        ? 'nav-bar-container'
+        : 'nav-bar-container-dark'
+      const onClickTheChangeThemeIcon = () => {
+        changeTheTheme()
+      }
       const onClickLogout = () => {
         Cookies.remove('jwt_token')
         const {history} = props
         history.replace('/login')
       }
-
-      const renderLightThemeHeader = () => (
-        <nav className="nav-bar-container">
+      const headerLogo = isThemeLight
+        ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+        : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+      const themeBtnClassname = isThemeLight ? 'theme-icon' : 'theme-icon-dark'
+      const logoutBtnClassname = isThemeLight ? 'logout-btn' : 'logout-btn-dark'
+      return (
+        <nav className={NavbarContainerClassName}>
           <Link to="/">
             <BtnElement data-testid="theme" type="button">
               <img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                src={headerLogo}
                 alt="website logo"
                 className="header-logo"
               />
@@ -31,8 +42,12 @@ const Header = props => (
           </Link>
           <ul className="navbar-options-container">
             <li>
-              <button className="theme-icon" type="button">
-                <FaMoon />
+              <button
+                onClick={onClickTheChangeThemeIcon}
+                className={themeBtnClassname}
+                type="button"
+              >
+                {isThemeLight ? <FaMoon /> : <BiSun />}
               </button>
             </li>
             <li>
@@ -49,7 +64,7 @@ const Header = props => (
                 trigger={
                   <button
                     onClick={onClickLogout}
-                    className="logout-btn"
+                    className={logoutBtnClassname}
                     type="button"
                   >
                     Logout
@@ -105,11 +120,6 @@ const Header = props => (
           </ul>
         </nav>
       )
-      const renderDarkThemeHeader = () => {}
-      if (isThemeLight === true) {
-        return renderLightThemeHeader()
-      }
-      return renderDarkThemeHeader()
     }}
   </ThemeContext.Consumer>
 )

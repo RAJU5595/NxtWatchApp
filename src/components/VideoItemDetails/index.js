@@ -115,6 +115,9 @@ class VideoItemDetails extends Component {
             savedVideosList,
           } = value
 
+          const videoItemContentContainer = isThemeLight
+            ? 'video-item-content-container'
+            : 'video-item-content-container-dark'
           const renderLightThemeVideoItemDetails = () => {
             const videoIndex = savedVideosList.findIndex(eachItem => {
               if (eachItem.id === videoItemDetails.id) {
@@ -145,7 +148,7 @@ class VideoItemDetails extends Component {
                 <Header />
                 <div className="video-item-details-sidebar-content-container">
                   <SideNavBar />
-                  <div className="video-item-content-container">
+                  <div className={videoItemContentContainer}>
                     <ReactPlayer
                       controls
                       height="55vh"
@@ -276,10 +279,7 @@ class VideoItemDetails extends Component {
             }
           }
 
-          if (isThemeLight === true) {
-            return renderAllLightThemeVideoItemDetails()
-          }
-          return renderDarkThemeVideoItemDetails()
+          return renderAllLightThemeVideoItemDetails()
         }}
       </ThemeContext.Consumer>
     )

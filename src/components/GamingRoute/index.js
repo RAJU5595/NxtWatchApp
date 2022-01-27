@@ -65,13 +65,19 @@ class GamingRoute extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {isThemeLight} = value
+          const gamingContentContainer = isThemeLight
+            ? 'gaming-content-container'
+            : 'gaming-content-container-dark'
+          const gamingBannerContainer = isThemeLight
+            ? 'gaming-banner-container'
+            : 'gaming-banner-container-dark'
           const renderLightThemeGaming = () => (
             <div className="gaming-bg-container">
               <Header />
               <div className="gaming-content-and-side-navbar-container">
                 <SideNavBar />
-                <div className="gaming-content-container">
-                  <div className="gaming-banner-container">
+                <div className={gamingContentContainer}>
+                  <div className={gamingBannerContainer}>
                     <SiYoutubegaming className="gaming-play-logo" />
                     <h1>Gaming</h1>
                   </div>
@@ -136,7 +142,6 @@ class GamingRoute extends Component {
             </div>
           )
 
-          const renderDarkThemeGaming = () => {}
           const renderAllLightThemeGaming = () => {
             const {gamingApiStatus} = this.state
             switch (gamingApiStatus) {
@@ -150,10 +155,7 @@ class GamingRoute extends Component {
                 return null
             }
           }
-          if (isThemeLight === true) {
-            return renderAllLightThemeGaming()
-          }
-          return renderDarkThemeGaming()
+          return renderAllLightThemeGaming()
         }}
       </ThemeContext.Consumer>
     )

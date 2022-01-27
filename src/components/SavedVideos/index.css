@@ -18,6 +18,15 @@
   overflow: auto;
   padding: 10px;
 }
+.saved-videos-content-container-dark {
+  width: 100%;
+  background-color: #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: 10px;
+  color: #ffffff;
+}
 
 .saved-videos-banner-container {
   background-color: #f4f4f4;

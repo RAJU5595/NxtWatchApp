@@ -16,6 +16,19 @@
   overflow: auto;
 }
 
+.home-bg-videos-content-container-dark {
+  width: 83%;
+  background-color: #181818;
+  overflow: auto;
+  color: #ffffff;
+}
+
+.input-search-field {
+  background-color: transparent;
+  border-width: 1px;
+  border-color: #94a3b8;
+}
+
 @media (max-width: 575px) {
   .home-bg-videos-content-container {
     width: 100%;
@@ -76,6 +89,7 @@
   align-items: center;
   width: 50%;
   padding: 5px;
+  background-color: transparent;
 }
 
 .input-search-field {
@@ -85,6 +99,7 @@
 
 .search-btn {
   width: 50px;
+  border-color: #94a3b8;
 }
 
 .video-list-container {

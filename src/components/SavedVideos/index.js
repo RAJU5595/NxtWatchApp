@@ -9,13 +9,16 @@ const SavedVideos = () => (
   <ThemeContext.Consumer>
     {value => {
       const {isThemeLight, savedVideosList} = value
+      const videoContentContainer = isThemeLight
+        ? 'saved-videos-content-container'
+        : 'saved-videos-content-container-dark'
       if (savedVideosList.length === 0) {
         return (
           <div className="saved-videos-bg-container">
             <Header />
             <div className="saved-videos-sidenavbar-and-content-container">
               <SideNavBar />
-              <div className="saved-videos-content-container">
+              <div className={videoContentContainer}>
                 <div className="no-saved-videos-container">
                   <img
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"

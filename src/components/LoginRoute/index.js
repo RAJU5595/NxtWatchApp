@@ -70,9 +70,15 @@ class LoginRoute extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {isThemeLight} = value
+          const loginBgContainerClassName = isThemeLight
+            ? 'login-bg-container'
+            : 'login-bg-container-dark'
+          const loginBgCardClassName = isThemeLight
+            ? 'login-bg-card'
+            : 'login-bg-card-dark'
           const renderLightThemeView = () => (
-            <div className="login-bg-container">
-              <div className="login-bg-card">
+            <div className={loginBgContainerClassName}>
+              <div className={loginBgCardClassName}>
                 <img
                   className="login-logo"
                   alt="website logo"
@@ -125,13 +131,7 @@ class LoginRoute extends Component {
               </div>
             </div>
           )
-
-          const renderDarkThemeView = () => {}
-
-          if (isThemeLight === true) {
-            return renderLightThemeView()
-          }
-          return renderDarkThemeView()
+          return renderLightThemeView()
         }}
       </ThemeContext.Consumer>
     )

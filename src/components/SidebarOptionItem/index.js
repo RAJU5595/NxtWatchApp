@@ -11,9 +11,18 @@ import './index.css'
 const SidebarOptionItem = props => (
   <ThemeContext.Consumer>
     {value => {
-      const {changeTheActiveTab} = value
+      const {changeTheActiveTab, isThemeLight} = value
       const {details, isActive} = props
-      const btnClassname = isActive === true ? 'selected-btn' : 'unselected-btn'
+      let BtnClassName = null
+      if (isThemeLight) {
+        BtnClassName = isActive
+          ? 'selected-btn selected-btn-light'
+          : 'unselected-btn unselected-btn-light'
+      } else {
+        BtnClassName = isActive
+          ? 'selected-btn selected-btn-dark'
+          : 'unselected-btn unselected-btn-dark'
+      }
       const {id, displayText, link} = details
       const getTheIcon = () => {
         switch (id) {
@@ -34,17 +43,18 @@ const SidebarOptionItem = props => (
         changeTheActiveTab(id)
       }
 
+      const sidebarText = isThemeLight ? 'sidebar-text' : 'sidebar-text-dark'
       return (
         <Link to={link}>
           <li>
             <button
               type="button"
-              className={btnClassname}
+              className={BtnClassName}
               onClick={onChangeTheCurrentTab}
             >
               <div className="sidebar-option-container">
                 {getTheIcon()}
-                <p className="sidebar-option-text">{displayText}</p>
+                <p className={sidebarText}>{displayText}</p>
               </div>
             </button>
           </li>

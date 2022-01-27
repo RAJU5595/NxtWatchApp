@@ -32,13 +32,23 @@
 
 .video-item-text-container {
   padding: 10px;
+  margin-left: 5px;
   display: flex;
   font-family: 'roboto';
+  color: #181818;
+}
+.video-item-text-container-dark {
+  padding: 10px;
+  display: flex;
+  font-family: 'roboto';
+  color: #f1f1f1;
+  margin-left: 5px;
 }
 
 .profile-image-icon {
   width: 20%;
   align-self: flex-start;
+  margin-right: 5px;
 }
 
 .views-count-container {

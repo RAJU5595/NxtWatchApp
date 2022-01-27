@@ -40,10 +40,11 @@ class App extends Component {
     savedVideosList: [],
   }
 
-  changeTheTheme = () =>
+  changeTheTheme = () => {
     this.setState(prevState => ({
       isThemeLight: !prevState.isThemeLight,
     }))
+  }
 
   changeTheActiveTab = Id => {
     this.setState({activeTabId: Id})
@@ -69,6 +70,7 @@ class App extends Component {
 
   render() {
     const {isThemeLight, activeTabId, savedVideosList} = this.state
+    console.log(isThemeLight)
     return (
       <ThemeContext.Provider
         value={{

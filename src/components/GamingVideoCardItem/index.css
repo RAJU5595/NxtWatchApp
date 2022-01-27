@@ -3,6 +3,11 @@
   cursor: pointer;
   color: #383838;
 }
+.gaming-card-video-link-dark {
+  text-decoration: none;
+  cursor: pointer;
+  color: #ffffff;
+}
 
 .gaming-thumbnail-image {
   width: 100%;

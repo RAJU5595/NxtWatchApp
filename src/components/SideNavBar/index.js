@@ -6,8 +6,11 @@ const SideNavBar = () => (
   <ThemeContext.Consumer>
     {value => {
       const {sideBarOptionsList, activeTabId, isThemeLight} = value
+      const sidebarContainerClassName = isThemeLight
+        ? 'sidebar-container'
+        : 'sidebar-container-dark'
       const renderLightThemeSideNavBar = () => (
-        <div className="sidebar-container">
+        <div className={sidebarContainerClassName}>
           <ul className="sidebar-options-container">
             {sideBarOptionsList.map(eachItem => (
               <SidebarOptionItem
@@ -42,12 +45,7 @@ const SideNavBar = () => (
           </div>
         </div>
       )
-      const renderDarkThemeSideNavbar = () => {}
-
-      if (isThemeLight === true) {
-        return renderLightThemeSideNavBar()
-      }
-      return renderDarkThemeSideNavbar()
+      return renderLightThemeSideNavBar()
     }}
   </ThemeContext.Consumer>
 )
