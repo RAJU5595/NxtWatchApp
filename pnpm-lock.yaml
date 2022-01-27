@@ -17,6 +17,7 @@ dependencies:
   react-loader-spinner: 4.0.0_react-dom@17.0.1+react@17.0.1
   react-player: 2.9.0_react@17.0.1
   react-router-dom: 5.2.0_react@17.0.1
+  react-tooltip: 4.2.21_react-dom@17.0.1+react@17.0.1
   reactjs-popup: 2.0.5_react-dom@17.0.1+react@17.0.1
   styled-components: 5.3.0_react-dom@17.0.1+react@17.0.1
   surge: 0.23.0
@@ -12097,6 +12098,20 @@ packages:
       react: 17.0.2
     resolution:
       integrity: sha512-yaQ9cB89c17PUb0x6UfWRs7kQCorVdHlutU1boVPEsB8IDZH6n9tHxMacc3y0JoXOJUsZb/t/Mb8FUWMKaM7iQ==
+  /react-tooltip/4.2.21_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      prop-types: 15.8.1
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+      uuid: 7.0.3
+    dev: false
+    engines:
+      npm: '>=6.13'
+    peerDependencies:
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    resolution:
+      integrity: sha512-zSLprMymBDowknr0KVDiJ05IjZn9mQhhg4PRsqln0OZtURAJ1snt1xi5daZfagsh6vfsziZrc9pErPTDY1ACig==
   /react/17.0.1:
     dependencies:
       loose-envify: 1.4.0
@@ -14229,6 +14244,11 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
+  /uuid/7.0.3:
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
   /uuid/8.3.2:
     dev: true
     hasBin: true
@@ -14928,6 +14948,7 @@ specifiers:
   react-player: 2.9.0
   react-router-dom: 5.2.0
   react-scripts: 4.0.3
+  react-tooltip: 4.2.21
   reactjs-popup: 2.0.5
   styled-components: 5.3.0
   surge: 0.23.0

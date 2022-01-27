@@ -114,12 +114,18 @@
   .logout-icon {
     display: none;
   }
+  .three-bars-btn {
+    display: none;
+  }
 }
 
 .three-bars-icon {
   font-size: 23px;
 }
-
+.three-bars-icon-dark {
+  font-size: 23px;
+  color: #ffffff;
+}
 .logout-icon {
   font-size: 23px;
 }
@@ -158,4 +164,24 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0.5px 0.5px 5px 0.5px #888888;
+}
+.three-bars-btn {
+  background-color: transparent;
+  border: none;
+}
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.menu-btn {
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
 }

@@ -1,4 +1,4 @@
-import {withRouter, Link} from 'react-router-dom'
+import {withRouter, Link, Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Popup from 'reactjs-popup'
 import {FaMoon} from 'react-icons/fa'
@@ -29,6 +29,27 @@ const Header = props => (
         : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
       const themeBtnClassname = isThemeLight ? 'theme-icon' : 'theme-icon-dark'
       const logoutBtnClassname = isThemeLight ? 'logout-btn' : 'logout-btn-dark'
+      const threebarsIcon = isThemeLight
+        ? 'three-bars-icon'
+        : 'three-bars-icon-dark'
+      const goToHome = () => {
+        const {history} = props
+        history.replace('/')
+      }
+      const goToTrending = () => {
+        const {history} = props
+        history.replace('/trending')
+      }
+
+      const goToGaming = () => {
+        const {history} = props
+        history.replace('/gaming')
+      }
+      const goToSavedVideos = () => {
+        const {history} = props
+        history.replace('/saved-videos')
+      }
+
       return (
         <nav className={NavbarContainerClassName}>
           <Link to="/">
@@ -56,7 +77,41 @@ const Header = props => (
                 className="header-profile-logo"
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
               />
-              <GoThreeBars className="three-bars-icon" />
+              <Popup
+                trigger={
+                  <button className="three-bars-btn" type="button">
+                    <GoThreeBars className={threebarsIcon} />
+                  </button>
+                }
+                position="bottom center"
+              >
+                <div className="menu-container">
+                  <button className="menu-btn" type="button" onClick={goToHome}>
+                    Home
+                  </button>
+                  <button
+                    className="menu-btn"
+                    type="button"
+                    onClick={goToTrending}
+                  >
+                    Trending Videos
+                  </button>
+                  <button
+                    onClick={goToGaming}
+                    className="menu-btn"
+                    type="button"
+                  >
+                    Gaming Videos
+                  </button>
+                  <button
+                    onClick={goToSavedVideos}
+                    className="menu-btn"
+                    type="button"
+                  >
+                    Saved Videos
+                  </button>
+                </div>
+              </Popup>
             </li>
             <li>
               <Popup
