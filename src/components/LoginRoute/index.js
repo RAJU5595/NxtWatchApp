@@ -70,6 +70,7 @@ class LoginRoute extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {isThemeLight} = value
+          const LoginBtn = isThemeLight ? 'login-btn' : 'login-btn-dark'
           const loginBgContainerClassName = isThemeLight
             ? 'login-bg-container'
             : 'login-bg-container-dark'
@@ -123,7 +124,7 @@ class LoginRoute extends Component {
                     />
                     <label htmlFor="show-password">Show Password</label>
                   </div>
-                  <button className="login-btn" type="submit">
+                  <button className={LoginBtn} type="submit">
                     Login
                   </button>
                   {isShowErrorMsg && <p>*{errorMsg}</p>}
